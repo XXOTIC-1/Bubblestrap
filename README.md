@@ -84,18 +84,6 @@ Minimize to Tray
 - Roblox Studio Support
 - Full translations unlike other bootstrappers
 - No analytics at all
-
------
-
-<a href="https://www.star-history.com/?repos=ItzBloxxy%2FBubblestrap&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=ItzBloxxy/Bubblestrap&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=ItzBloxxy/Bubblestrap&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=ItzBloxxy/Bubblestrap&type=date&legend=top-left" />
- </picture>
-</a>
-
-![Download History](downloads.png)
   
 [repo-latest]:   https://github.com/ItzBloxxy/Bubblestrap/releases/latest
 
