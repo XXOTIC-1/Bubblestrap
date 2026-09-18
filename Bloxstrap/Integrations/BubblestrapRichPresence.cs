@@ -117,7 +117,7 @@ namespace Bloxstrap.Integrations
                     Assets = new Assets
                     {
                         LargeImageKey = "bubblestrap",
-                        LargeImageText = "Bubblestrap",
+                        LargeImageText = "Tuffstrap",
                         SmallImageKey = "checkmark",
                         SmallImageText = $"v{App.Version}"
                     },

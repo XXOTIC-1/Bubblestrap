@@ -24,6 +24,21 @@ namespace Bloxstrap
             { "Rendering.FRMQualityOverride", "DFIntDebugFRMQualityLevelOverride" },
             { "Rendering.SkyGray", "FFlagDebugSkyGray" },
 
+            // FPS and performance
+            { "Rendering.TargetFps", "DFIntTaskSchedulerTargetFps" },
+            { "Rendering.UnlockFpsCap", "FFlagTaskSchedulerLimitTargetFpsTo2402" },
+            { "Rendering.DisablePostFx", "FFlagDisablePostFx" },
+            { "Rendering.Shadows", "FIntRenderShadowIntensity" },
+            { "Rendering.SSAO", "FFlagDebugDisableRenderSSAO" },
+            { "Rendering.TexOverride", "FFlagTextureQualityOverrideEnabled" },
+            { "Rendering.TexLevel", "DFIntTextureQualityOverride" },
+            { "Rendering.GuiBlur", "FIntRobloxGuiBlurIntensity" },
+            { "Rendering.ShowFps", "FFlagDebugDisplayFPS" },
+            { "Lighting.UpdatesMax", "FIntRenderLocalLightUpdatesMax" },
+            { "Lighting.UpdatesMin", "FIntRenderLocalLightUpdatesMin" },
+            { "Effects.GrassStrands", "FIntRenderGrassDetailStrands" },
+            { "Effects.Particles", "FIntRenderMaxParticleCount" },
+
             // Rendering engines
             { "Rendering.Mode.DisableD3D11", "FFlagDebugGraphicsDisableDirect3D11" },
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },

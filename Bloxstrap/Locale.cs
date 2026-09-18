@@ -13,41 +13,7 @@ namespace Bloxstrap
         public static readonly Dictionary<string, string> SupportedLocales = new()
         {
             { "nil", Strings.Common_SystemDefault },
-            { "en", "English" },
-            { "en-US", "English (United States)" },
-            { "ar", "العربية" }, // Arabic
-            { "bg", "Български" }, // Bulgarian
-            { "bs", "Bosanski" }, // Bosnian
-            { "cs", "Čeština" }, // Czech
-            { "de", "Deutsch" }, // German
-            { "da", "Dansk" }, // Danish
-            { "es-ES", "Español" }, // Spanish
-            { "fa", "فارسی" }, // Persian
-            { "fi", "Suomi" }, // Finnish
-            { "fil", "Filipino" }, // Filipino
-            { "fr", "Français" }, // French
-            { "hr", "Hrvatski" }, // Croatian
-            { "hu", "Magyar" }, // Hungarian
-            { "id", "Bahasa Indonesia" }, // Indonesian
-            { "it", "Italiano" }, // Italian
-            { "ja", "日本語" }, // Japanese
-            { "ko", "한국어" }, // Korean
-            { "lv", "Latviešu" }, // Latvian
-            { "lt", "Lietuvių" }, // Lithuanian
-            { "ms", "Malay" }, // Malay
-            { "nl", "Nederlands" }, // Dutch
-            { "pl", "Polski" }, // Polish
-            { "pt-BR", "Português (Brasil)" }, // Portuguese, Brazilian
-            { "ro", "Română" }, // Romanian
-            { "ru", "Русский" }, // Russian
-            { "sv-SE", "Svenska" }, // Swedish
-            { "th", "ภาษาไทย" }, // Thai
-            { "tr", "Türkçe" }, // Turkish
-            { "uk", "Українська" }, // Ukrainian
-            { "vi", "Tiếng Việt" }, // Vietnamese
-            { "zh-CN", "中文 (简体)" }, // Chinese Simplified
-            { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
-            { "zh-TW", "中文 (繁體)" } // Chinese Traditional
+            { "en", "English" }
         };
 
         public static string GetIdentifierFromName(string language) => SupportedLocales.FirstOrDefault(x => x.Value == language).Key ?? "nil";
@@ -98,10 +64,6 @@ namespace Bloxstrap
 
                     if (window.ContextMenu is not null)
                         window.ContextMenu.FlowDirection = FlowDirection.RightToLeft;
-                }
-                else if (CurrentCulture.Name.StartsWith("th"))
-                {
-                    window.FontFamily = new System.Windows.Media.FontFamily(new Uri("pack://application:,,,/Resources/Fonts/"), "./#Noto Sans Thai");
                 }
             }));
         }

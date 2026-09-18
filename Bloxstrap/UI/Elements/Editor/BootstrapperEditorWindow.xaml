@@ -33,7 +33,7 @@
             Grid.Row="0"
             Padding="8"
             ForceShutdown="False"
-            Icon="pack://application:,,,/Bubblestrap.ico"
+            Icon="pack://application:,,,/Tuffstrap.ico"
             MinimizeToTray="False"
             UseSnapLayout="True" />
 
