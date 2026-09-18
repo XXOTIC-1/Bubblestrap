@@ -10,7 +10,7 @@ namespace Bloxstrap
 {
     public partial class App : Application
     {
-        public const string ProjectName = "Bubblestrap";
+        public const string ProjectName = "Tuffstrap";
         public const string ProjectOwner = "ItzBloxxy";
         public const string ProjectRepository = "ItzBloxxy/Bubblestrap";
         public const string ProjectDownloadLink = "https://github.com/ItzBloxxy/Bubblestrap/releases";

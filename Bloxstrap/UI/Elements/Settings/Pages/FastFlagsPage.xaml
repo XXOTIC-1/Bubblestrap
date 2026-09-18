@@ -8,19 +8,12 @@
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d"
-      d:DesignHeight="1500" d:DesignWidth="800"
+      d:DesignHeight="2200" d:DesignWidth="800"
       Title="FastFlagsPage"
       Scrollable="True"
       Loaded="Page_Loaded">
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
-        <ui:CardAction Margin="0,8,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
-            <StackPanel>
-                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
-                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            </StackPanel>
-        </ui:CardAction>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
@@ -28,9 +21,130 @@
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Description}" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Margin="0,4,0,8" TextWrapping="Wrap" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="Flash24" Command="{Binding ApplyPotatoPresetCommand}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Potato_Title}" TextWrapping="Wrap" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Potato_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                </StackPanel>
+            </ui:CardAction>
+
+            <ui:CardAction Grid.Column="1" Margin="4,0,4,0" Icon="TopSpeed24" Command="{Binding ApplyPerformancePresetCommand}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Performance_Title}" TextWrapping="Wrap" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Performance_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                </StackPanel>
+            </ui:CardAction>
+
+            <ui:CardAction Grid.Column="2" Margin="4,0,0,0" Icon="Gauge24" Command="{Binding ApplyBalancedPresetCommand}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Balanced_Title}" TextWrapping="Wrap" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Balanced_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                </StackPanel>
+            </ui:CardAction>
+        </Grid>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Fps_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
-            <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
+            Header="{x:Static resources:Strings.Menu_FastFlags_TargetFps_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_TargetFps_Description}">
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding TargetFps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="ValidateUInt32" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_UnlockFps_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_UnlockFps_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding UnlockFpsCap, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_ShowFps_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_ShowFps_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding ShowFps, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Switches_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisablePostFx_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisablePostFx_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisablePostFx, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisableShadows_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisableShadows_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableShadows, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisableSSAO_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisableSSAO_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableSSAO, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_LowTextures_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_LowTextures_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding LowTextures, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisableBlur_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisableBlur_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableBlur, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_LowLights_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_LowLights_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding LowLights, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisableParticles_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisableParticles_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableParticles, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_DisableGrassStrands_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_DisableGrassStrands_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableGrassStrands, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_GraySky_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding SkyGray, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Grass_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Grass_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableGrass, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding PauseVoxelizer, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
@@ -82,13 +196,6 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
-            HelpLink="https://bloxstraplabs.com/wiki/features/engine-settings/#preserving-rendering-quality">
-            <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
-        </controls:OptionControl>
-
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding FRMQualityOverrideEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
             <ui:CardExpander.Header>
                 <Grid>
@@ -135,22 +242,16 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_GraySky_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding SkyGray, Mode=TwoWay}" />
-        </controls:OptionControl>
+        <ui:CardAction Margin="0,16,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
+            <StackPanel>
+                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardAction>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Grass_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Grass_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableGrass, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding PauseVoxelizer, Mode=TwoWay}" />
+            Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
+            <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

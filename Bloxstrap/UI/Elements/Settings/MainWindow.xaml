@@ -39,7 +39,7 @@
             Appearance="Success" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
         <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" 
-                     Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bubblestrap.ico" />
+                     Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Tuffstrap.ico" />
 
         <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0">
             <Grid.RowDefinitions>
@@ -60,12 +60,12 @@
                 SelectedPageIndex="0">
 
                 <ui:NavigationFluent.Items>
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" FontWeight="Medium" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" FontWeight="Medium" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Common_Deployment}" FontWeight="Medium" PageType="{x:Type pages:ChannelPage}" Icon="CloudArchive20" Tag="channel" />
+                    <ui:NavigationItem x:Name="fastflags" Content="{x:Static resources:Strings.Menu_FastFlags_Title}" FontWeight="Medium" PageType="{x:Type pages:FastFlagsPage}" Icon="TopSpeed24" Tag="fastflags" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" FontWeight="Medium" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
-                    <ui:NavigationItem x:Name="fastflags" Content="{x:Static resources:Strings.Menu_FastFlags_Title}" FontWeight="Medium" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" FontWeight="Medium" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
                     <ui:NavigationItem x:Name="gbs" Content="{x:Static resources:Strings.Common_GlobalSettings}" FontWeight="Medium" PageType="{x:Type pages:GlobalSettingsPage}" Icon="Settings20" Tag="gbseditor"/>
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Common_Deployment}" FontWeight="Medium" PageType="{x:Type pages:ChannelPage}" Icon="CloudArchive20" Tag="channel" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" FontWeight="Medium" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" FontWeight="Medium" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" FontWeight="Medium" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
 
