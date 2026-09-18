@@ -13,8 +13,6 @@ namespace Bloxstrap
 
         public readonly ActivityWatcher? ActivityWatcher;
 
-        public DiscordRichPresence? RichPresence { get; private set; }
-
         public Watcher()
         {
             const string LOG_IDENT = "Watcher";
@@ -61,11 +59,6 @@ namespace Bloxstrap
                     };
                 }
 
-                if (App.Settings.Prop.UseDiscordRichPresence && !App.State.Prop.WatcherRunning)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Running RPC");
-                    RichPresence = new DiscordRichPresence(ActivityWatcher);
-                }
             }
 
             _notifyIcon = new(this);
@@ -126,7 +119,6 @@ namespace Bloxstrap
             App.Logger.WriteLine("Watcher::Dispose", "Disposing Watcher");
 
             _notifyIcon?.Dispose();
-            RichPresence?.Dispose();
 
             App.State.Prop.WatcherRunning = false;
 

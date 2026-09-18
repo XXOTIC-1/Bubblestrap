@@ -28,9 +28,6 @@ namespace Bloxstrap.UI.Elements.Settings
             if (showAlreadyRunningWarning)
                 ShowAlreadyRunningSnackbar();
 
-            gbs.Opacity = viewModel.GBSEnabled ? 1 : 0.5;
-            gbs.IsEnabled = viewModel.GBSEnabled;
-
             LoadState();
 
             string? lastPageName = App.State.Prop.LastPage;
@@ -79,9 +76,6 @@ namespace Bloxstrap.UI.Elements.Settings
         private async void SafeNavigate(Type page)
         {
             await Task.Delay(500);
-            if (page == typeof(GlobalSettingsPage) && !App.GlobalSettings.Loaded)
-                return;
-
             Navigate(page);
         }
 

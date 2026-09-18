@@ -3878,29 +3878,9 @@ namespace Bloxstrap.Resources {
             }
         }
         
-        public static string Menu_FastFlags_Packs_Potato_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Packs.Potato.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_Packs_Potato_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Packs.Potato.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_Packs_Performance_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Packs.Performance.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_Packs_Performance_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Packs.Performance.Description", resourceCulture);
-            }
-        }
         
         public static string Menu_FastFlags_Packs_Balanced_Title {
             get {
@@ -3920,29 +3900,9 @@ namespace Bloxstrap.Resources {
             }
         }
         
-        public static string Menu_FastFlags_TargetFps_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.TargetFps.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_TargetFps_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.TargetFps.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_UnlockFps_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.UnlockFps.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_UnlockFps_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.UnlockFps.Description", resourceCulture);
-            }
-        }
         
         public static string Menu_FastFlags_ShowFps_Title {
             get {
@@ -3956,47 +3916,12 @@ namespace Bloxstrap.Resources {
             }
         }
         
-        public static string Menu_FastFlags_Switches_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Switches.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisablePostFx_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisablePostFx.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisablePostFx_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisablePostFx.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableShadows_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableShadows.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableShadows_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableShadows.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableSSAO_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableSSAO.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableSSAO_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableSSAO.Description", resourceCulture);
-            }
-        }
         
         public static string Menu_FastFlags_LowTextures_Title {
             get {
@@ -4010,53 +3935,13 @@ namespace Bloxstrap.Resources {
             }
         }
         
-        public static string Menu_FastFlags_DisableBlur_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableBlur.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableBlur_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableBlur.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_LowLights_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.LowLights.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_LowLights_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.LowLights.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableParticles_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableParticles.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableParticles_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableParticles.Description", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableGrassStrands_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableGrassStrands.Title", resourceCulture);
-            }
-        }
         
-        public static string Menu_FastFlags_DisableGrassStrands_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.DisableGrassStrands.Description", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to For more information join Tuffstrap Discord server.
@@ -5498,5 +5383,131 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Uninstaller.Uninstall", resourceCulture);
             }
         }
+        public static string Menu_FastFlags_Packs_MaxFps_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Packs.MaxFps.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_Packs_MaxFps_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Packs.MaxFps.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_FpsCap_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.FpsCap.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_FpsCap_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.FpsCap.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_Advanced_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Advanced.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_Strict_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Strict.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlags_Strict_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Strict.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlagEditor_Allowlist_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Allowlist.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_FastFlagEditor_Allowlist_Message {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Allowlist.Message", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Warning_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Warning.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Warning_Message {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Warning.Message", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Acknowledge_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Acknowledge.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Acknowledge_Description {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Acknowledge.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Visual_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Visual.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Fullbright_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Fullbright.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Fullbright_Description {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Fullbright.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Wireframe_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Wireframe.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_Wireframe_Description {
+            get {
+                return ResourceManager.GetString("Menu.Risky.Wireframe.Description", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_SkipMeshVoxelizer_Title {
+            get {
+                return ResourceManager.GetString("Menu.Risky.SkipMeshVoxelizer.Title", resourceCulture);
+            }
+        }
+
+        public static string Menu_Risky_SkipMeshVoxelizer_Description {
+            get {
+                return ResourceManager.GetString("Menu.Risky.SkipMeshVoxelizer.Description", resourceCulture);
+            }
+        }
+
     }
 }

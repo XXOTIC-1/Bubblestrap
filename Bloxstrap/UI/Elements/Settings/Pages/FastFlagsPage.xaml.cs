@@ -14,7 +14,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             SetupViewModel();
             InitializeComponent();
-            App.BubbleRPC?.SetPage("FPS Settings");
         }
 
         private bool _initialLoad = false;

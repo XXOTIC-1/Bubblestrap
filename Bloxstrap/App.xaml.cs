@@ -31,8 +31,6 @@ namespace Bloxstrap
 
         public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
-        public BubblestrapRichPresence RichPresence { get; private set; } = null!;
-
         public static bool IsActionBuild => !string.IsNullOrEmpty(BuildMetadata.CommitRef);
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
@@ -54,8 +52,6 @@ namespace Bloxstrap
         public static readonly LocalDataManager LocalData = new();
 
         public static readonly FastFlagManager FastFlags = new();
-
-        public static readonly GlobalSettingsManager GlobalSettings = new();
 
         public static readonly CookiesManager Cookies = new();
 
@@ -116,16 +112,6 @@ namespace Bloxstrap
 
             Frontend.ShowExceptionDialog(ex);
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
-        }
-
-        public static BubblestrapRichPresence? BubbleRPC
-        {
-            get => (Current as App)?.RichPresence;
-            set
-            {
-                if (Current is App app)
-                    app.RichPresence = value!;
-            }
         }
 
         public static async Task<GithubRelease?> GetLatestRelease()
@@ -281,8 +267,6 @@ namespace Bloxstrap
                 State.Load();
                 RobloxState.Load();
                 FastFlags.Load();
-                GlobalSettings.Load();
-
                 if (Settings.Prop.AllowCookieAccess)
                     Task.Run(Cookies.LoadCookies);
 
@@ -322,7 +306,6 @@ namespace Bloxstrap
 
         protected override void OnExit(ExitEventArgs e)
         {
-            BubbleRPC?.Dispose();
             base.OnExit(e);
         }
     }

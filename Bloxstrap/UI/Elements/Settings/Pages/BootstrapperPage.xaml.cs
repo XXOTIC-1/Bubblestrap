@@ -12,7 +12,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             DataContext = new BehaviourViewModel();
             InitializeComponent();
-            App.BubbleRPC?.SetPage("Bootstrapper");
         }
 
         private void ValidateNumber(object sender, System.Windows.Input.TextCompositionEventArgs e)

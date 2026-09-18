@@ -8,7 +8,7 @@
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d"
-      d:DesignHeight="2200" d:DesignWidth="800"
+      d:DesignHeight="1400" d:DesignWidth="800"
       Title="FastFlagsPage"
       Scrollable="True"
       Loaded="Page_Loaded">
@@ -28,24 +28,16 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="Flash24" Command="{Binding ApplyPotatoPresetCommand}">
+            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="TopSpeed24" Command="{Binding ApplyMaxFpsPresetCommand}">
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Potato_Title}" TextWrapping="Wrap" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Potato_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_MaxFps_Title}" TextWrapping="Wrap" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_MaxFps_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
                 </StackPanel>
             </ui:CardAction>
 
-            <ui:CardAction Grid.Column="1" Margin="4,0,4,0" Icon="TopSpeed24" Command="{Binding ApplyPerformancePresetCommand}">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Performance_Title}" TextWrapping="Wrap" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Performance_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
-                </StackPanel>
-            </ui:CardAction>
-
-            <ui:CardAction Grid.Column="2" Margin="4,0,0,0" Icon="Gauge24" Command="{Binding ApplyBalancedPresetCommand}">
+            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="Gauge24" Command="{Binding ApplyBalancedPresetCommand}">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Balanced_Title}" TextWrapping="Wrap" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Balanced_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
@@ -55,17 +47,36 @@
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Fps_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_TargetFps_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_TargetFps_Description}">
-            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding TargetFps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="ValidateUInt32" />
-        </controls:OptionControl>
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding FpsCapEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_UnlockFps_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_UnlockFps_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding UnlockFpsCap, Mode=TwoWay}" />
-        </controls:OptionControl>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_FpsCap_Title}" />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_FpsCap_Description}"
+                                   Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch Grid.Column="1" IsChecked="{Binding FpsCapEnabled, Mode=TwoWay}" />
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Slider Grid.Column="0" Margin="0,0,8,0" Minimum="30" Maximum="1000" TickFrequency="10" IsSnapToTickEnabled="True" Value="{Binding FpsCap, Mode=TwoWay}" />
+                <Border Margin="8,-4,0,0" Grid.Column="1" Width="48" BorderBrush="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" Background="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" BorderThickness="1" CornerRadius="4">
+                    <TextBlock HorizontalAlignment="Center" Padding="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding FpsCap, Mode=OneWay}" />
+                </Border>
+            </Grid>
+        </ui:CardExpander>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_ShowFps_Title}"
@@ -73,60 +84,12 @@
             <ui:ToggleSwitch IsChecked="{Binding ShowFps, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Switches_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisablePostFx_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisablePostFx_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisablePostFx, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisableShadows_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisableShadows_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableShadows, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisableSSAO_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisableSSAO_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableSSAO, Mode=TwoWay}" />
-        </controls:OptionControl>
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_LowTextures_Title}"
             Description="{x:Static resources:Strings.Menu_FastFlags_LowTextures_Description}">
             <ui:ToggleSwitch IsChecked="{Binding LowTextures, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisableBlur_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisableBlur_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableBlur, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_LowLights_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_LowLights_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding LowLights, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisableParticles_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisableParticles_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableParticles, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_DisableGrassStrands_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_DisableGrassStrands_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableGrassStrands, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_GraySky_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding SkyGray, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
@@ -136,58 +99,25 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_Voxelizer_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding PauseVoxelizer, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}">
             <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-
-        <TextBlock Text="{x:Static resources:Strings.Common_Geometry}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding Path=MeshQualityEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
-            <ui:CardExpander.Header>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Header}" />
-                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Description}" 
-                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-
-                    <ui:ToggleSwitch Grid.Column="1" IsChecked="{Binding MeshQualityEnabled, Mode=TwoWay}" />
-                </Grid>
-            </ui:CardExpander.Header>
-
-            <StackPanel Margin="0,8,0,0">
-                <TextBlock Padding="8" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_LowQualityWarning}" TextAlignment="Center" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text="{x:Static resources:Strings.Common_LowestQuality}" Grid.Column="0" />
-                    <Slider Grid.Column="1" Margin="8,0,8,0" Minimum="0" Maximum="3" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding MeshQuality, Mode=TwoWay}" />
-                    <TextBlock Text="{x:Static resources:Strings.Common_HighestQuality}" Grid.Column="2" />
-                </Grid>
-            </StackPanel>
-        </ui:CardExpander>
-
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Title}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MSAALevels.Keys, Mode=OneTime}" Text="{Binding SelectedMSAALevel, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
@@ -231,18 +161,50 @@
             </Grid>
         </ui:CardExpander>
 
+        <TextBlock Text="{x:Static resources:Strings.Common_Geometry}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding Path=MeshQualityEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Header}" />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Description}" 
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+
+                    <ui:ToggleSwitch Grid.Column="1" IsChecked="{Binding MeshQualityEnabled, Mode=TwoWay}" />
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel Margin="0,8,0,0">
+                <TextBlock Padding="8" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_LowQualityWarning}" TextAlignment="Center" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{x:Static resources:Strings.Common_LowestQuality}" Grid.Column="0" />
+                    <Slider Grid.Column="1" Margin="8,0,8,0" Minimum="0" Maximum="3" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding MeshQuality, Mode=TwoWay}" />
+                    <TextBlock Text="{x:Static resources:Strings.Common_HighestQuality}" Grid.Column="2" />
+                </Grid>
+            </StackPanel>
+        </ui:CardExpander>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Advanced_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            Header="{x:Static resources:Strings.Menu_FastFlags_Strict_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Strict_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding StrictFlagAllowlist, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <ui:CardAction Margin="0,16,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
+        <ui:CardAction Margin="0,8,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
             <StackPanel>
                 <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
                 <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

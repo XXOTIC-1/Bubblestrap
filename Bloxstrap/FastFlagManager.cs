@@ -14,30 +14,27 @@ namespace Bloxstrap
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
 
+        // Every flag Tuffstrap is willing to write. A flag earns a place here only if it
+        // resolved against the compiled client flag table (FVariables) or a live PCDesktopClient
+        // dump. Flags that resolved nowhere were dropped rather than shipped dead, since a preset
+        // full of retired flags looks like it works and changes nothing.
+        //
+        // Keys under "Risky." are advantage/visual flags. They are still written through the same
+        // pipeline, but the UI keeps them behind an acknowledgement gate.
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
+            // Framerate
+            { "Rendering.TargetFps", "DFIntTaskSchedulerTargetFps" },
+            { "Rendering.UnlockFpsCap", "FFlagTaskSchedulerLimitTargetFpsTo2402" },
+            { "Rendering.ShowFps", "FFlagDebugDisplayFPS" },
 
             // Presets and stuff
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
             { "Rendering.FRMQualityOverride", "DFIntDebugFRMQualityLevelOverride" },
-            { "Rendering.SkyGray", "FFlagDebugSkyGray" },
-
-            // FPS and performance
-            { "Rendering.TargetFps", "DFIntTaskSchedulerTargetFps" },
-            { "Rendering.UnlockFpsCap", "FFlagTaskSchedulerLimitTargetFpsTo2402" },
-            { "Rendering.DisablePostFx", "FFlagDisablePostFx" },
-            { "Rendering.Shadows", "FIntRenderShadowIntensity" },
-            { "Rendering.SSAO", "FFlagDebugDisableRenderSSAO" },
-            { "Rendering.TexOverride", "FFlagTextureQualityOverrideEnabled" },
+            { "Rendering.TexOverride", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TexLevel", "DFIntTextureQualityOverride" },
-            { "Rendering.GuiBlur", "FIntRobloxGuiBlurIntensity" },
-            { "Rendering.ShowFps", "FFlagDebugDisplayFPS" },
-            { "Lighting.UpdatesMax", "FIntRenderLocalLightUpdatesMax" },
-            { "Lighting.UpdatesMin", "FIntRenderLocalLightUpdatesMin" },
-            { "Effects.GrassStrands", "FIntRenderGrassDetailStrands" },
-            { "Effects.Particles", "FIntRenderMaxParticleCount" },
 
             // Rendering engines
             { "Rendering.Mode.DisableD3D11", "FFlagDebugGraphicsDisableDirect3D11" },
@@ -45,7 +42,6 @@ namespace Bloxstrap
             { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "Rendering.Grass.Max", "FIntFRMMaxGrassDistance" },
             { "Rendering.Grass.Min", "FIntFRMMinGrassDistance" },
-            { "Rendering.PauseVoxelizer", "DFFlagDebugPauseVoxelizer" },
 
             // Geometry
             { "Geometry.MeshLOD.Static", "DFIntCSGLevelOfDetailSwitchingDistanceStatic" }, // this isnt actually a flag, we use it to determine current value, not the best way of doing that
@@ -54,7 +50,21 @@ namespace Bloxstrap
             { "Geometry.MeshLOD.L23", "DFIntCSGLevelOfDetailSwitchingDistanceL23" },
             { "Geometry.MeshLOD.L34", "DFIntCSGLevelOfDetailSwitchingDistanceL34" },
 
+            // Risky, gated behind an acknowledgement in the UI
+            { "Risky.SkyGray", "FFlagDebugSkyGray" },
+            { "Risky.PauseVoxelizer", "DFFlagDebugPauseVoxelizer" },
+            { "Risky.SkipMeshVoxelizer", "DFFlagDebugSkipMeshVoxelizer" },
+            { "Risky.Wireframe", "DFFlagDebugGraphicsEnableWireframe" },
         };
+
+        /// <summary>
+        /// Flag names Tuffstrap will write to the client. Anything outside this set is kept in the
+        /// user's own flag list but skipped when strict mode is on.
+        /// </summary>
+        public static readonly IReadOnlySet<string> AllowedFlags =
+            PresetFlags.Values.ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        public static bool IsAllowed(string flag) => AllowedFlags.Contains(flag);
 
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
         {
@@ -174,6 +184,17 @@ namespace Bloxstrap
             var playerFlags = Prop
                 .Where(x => !studioFlagNames.Contains(x.Key))
                 .ToDictionary(x => x.Key, x => x.Value.ToString()!);
+
+            if (App.Settings.Prop.StrictFlagAllowlist)
+            {
+                var skipped = playerFlags.Keys.Where(x => !IsAllowed(x)).ToList();
+
+                foreach (string flag in skipped)
+                    playerFlags.Remove(flag);
+
+                if (skipped.Any())
+                    App.Logger.WriteLine(LOG_IDENT, $"Strict mode skipped {skipped.Count} off-list flag(s): {string.Join(", ", skipped)}");
+            }
 
             var allFlags = new Dictionary<string, object>(Prop);
             Prop = playerFlags.ToDictionary(x => x.Key, x => (object)x.Value);

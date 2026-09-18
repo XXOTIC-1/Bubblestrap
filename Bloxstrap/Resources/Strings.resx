@@ -1966,18 +1966,6 @@ Defaulting to {1}.</value>
     <data name="Menu.FastFlags.Packs.Description" xml:space="preserve">
     <value>One-click presets. Potato is the fastest. Save after applying.</value>
   </data>
-    <data name="Menu.FastFlags.Packs.Potato.Title" xml:space="preserve">
-    <value>Potato</value>
-  </data>
-    <data name="Menu.FastFlags.Packs.Potato.Description" xml:space="preserve">
-    <value>Max FPS. Lowest visuals.</value>
-  </data>
-    <data name="Menu.FastFlags.Packs.Performance.Title" xml:space="preserve">
-    <value>Performance</value>
-  </data>
-    <data name="Menu.FastFlags.Packs.Performance.Description" xml:space="preserve">
-    <value>High FPS with playable graphics.</value>
-  </data>
     <data name="Menu.FastFlags.Packs.Balanced.Title" xml:space="preserve">
     <value>Balanced</value>
   </data>
@@ -1987,44 +1975,11 @@ Defaulting to {1}.</value>
     <data name="Menu.FastFlags.Fps.Title" xml:space="preserve">
     <value>Framerate</value>
   </data>
-    <data name="Menu.FastFlags.TargetFps.Title" xml:space="preserve">
-    <value>FPS cap</value>
-  </data>
-    <data name="Menu.FastFlags.TargetFps.Description" xml:space="preserve">
-    <value>Target framerate. Use 0 or a high number for unlocked FPS.</value>
-  </data>
-    <data name="Menu.FastFlags.UnlockFps.Title" xml:space="preserve">
-    <value>Unlock 240 FPS limit</value>
-  </data>
-    <data name="Menu.FastFlags.UnlockFps.Description" xml:space="preserve">
-    <value>Stop Roblox from capping the scheduler at 240 FPS.</value>
-  </data>
     <data name="Menu.FastFlags.ShowFps.Title" xml:space="preserve">
     <value>Show FPS counter</value>
   </data>
     <data name="Menu.FastFlags.ShowFps.Description" xml:space="preserve">
     <value>Draw the engine FPS overlay in-game.</value>
-  </data>
-    <data name="Menu.FastFlags.Switches.Title" xml:space="preserve">
-    <value>FPS switches</value>
-  </data>
-    <data name="Menu.FastFlags.DisablePostFx.Title" xml:space="preserve">
-    <value>Disable post-processing</value>
-  </data>
-    <data name="Menu.FastFlags.DisablePostFx.Description" xml:space="preserve">
-    <value>Turn off bloom, color correction, and other post FX.</value>
-  </data>
-    <data name="Menu.FastFlags.DisableShadows.Title" xml:space="preserve">
-    <value>Disable shadows</value>
-  </data>
-    <data name="Menu.FastFlags.DisableShadows.Description" xml:space="preserve">
-    <value>Zero out shadow intensity for a large FPS gain.</value>
-  </data>
-    <data name="Menu.FastFlags.DisableSSAO.Title" xml:space="preserve">
-    <value>Disable SSAO</value>
-  </data>
-    <data name="Menu.FastFlags.DisableSSAO.Description" xml:space="preserve">
-    <value>Remove screen-space ambient occlusion.</value>
   </data>
     <data name="Menu.FastFlags.LowTextures.Title" xml:space="preserve">
     <value>Low textures</value>
@@ -2032,28 +1987,67 @@ Defaulting to {1}.</value>
     <data name="Menu.FastFlags.LowTextures.Description" xml:space="preserve">
     <value>Force the lowest texture quality override.</value>
   </data>
-    <data name="Menu.FastFlags.DisableBlur.Title" xml:space="preserve">
-    <value>Disable GUI blur</value>
+    <data name="Menu.FastFlags.Packs.MaxFps.Title" xml:space="preserve">
+    <value>Max FPS</value>
   </data>
-    <data name="Menu.FastFlags.DisableBlur.Description" xml:space="preserve">
-    <value>Remove the in-game menu blur effect.</value>
+    <data name="Menu.FastFlags.Packs.MaxFps.Description" xml:space="preserve">
+    <value>Every FPS switch on, lowest visuals.</value>
   </data>
-    <data name="Menu.FastFlags.LowLights.Title" xml:space="preserve">
-    <value>Reduce local lights</value>
+    <data name="Menu.FastFlags.FpsCap.Title" xml:space="preserve">
+    <value>FPS cap</value>
   </data>
-    <data name="Menu.FastFlags.LowLights.Description" xml:space="preserve">
-    <value>Limit how often local lights update.</value>
+    <data name="Menu.FastFlags.FpsCap.Description" xml:space="preserve">
+    <value>Target framerate for the client. Above 240 the 240 limiter is turned off for you.</value>
   </data>
-    <data name="Menu.FastFlags.DisableParticles.Title" xml:space="preserve">
-    <value>Disable particles</value>
+    <data name="Menu.FastFlags.Advanced.Title" xml:space="preserve">
+    <value>Advanced</value>
   </data>
-    <data name="Menu.FastFlags.DisableParticles.Description" xml:space="preserve">
-    <value>Cap particle count at zero.</value>
+    <data name="Menu.FastFlags.Strict.Title" xml:space="preserve">
+    <value>Only write allowlisted flags</value>
   </data>
-    <data name="Menu.FastFlags.DisableGrassStrands.Title" xml:space="preserve">
-    <value>Disable grass strands</value>
+    <data name="Menu.FastFlags.Strict.Description" xml:space="preserve">
+    <value>Flags Tuffstrap does not recognise stay in your list but are not sent to Roblox. Turn this off only if you know what a flag does.</value>
   </data>
-    <data name="Menu.FastFlags.DisableGrassStrands.Description" xml:space="preserve">
-    <value>Remove detailed grass strand rendering.</value>
+    <data name="Menu.FastFlagEditor.Allowlist.Title" xml:space="preserve">
+    <value>Only allowlisted keys do anything</value>
+  </data>
+    <data name="Menu.FastFlagEditor.Allowlist.Message" xml:space="preserve">
+    <value>While strict mode is on, any flag outside Tuffstrap's allowlist is ignored and never written to Roblox. Pasting a large flag pack here will not make it apply.</value>
+  </data>
+    <data name="Menu.Risky.Title" xml:space="preserve">
+    <value>Risky</value>
+  </data>
+    <data name="Menu.Risky.Warning.Title" xml:space="preserve">
+    <value>These can get your account banned</value>
+  </data>
+    <data name="Menu.Risky.Warning.Message" xml:space="preserve">
+    <value>The flags below change what you can see rather than how fast the game runs. They are undocumented, Roblox is aware of them, and using them may result in moderation or a permanent ban on your account. Use them at your own risk.</value>
+  </data>
+    <data name="Menu.Risky.Acknowledge.Title" xml:space="preserve">
+    <value>I understand the risk</value>
+  </data>
+    <data name="Menu.Risky.Acknowledge.Description" xml:space="preserve">
+    <value>Nothing below can be changed until this is on. Turning it back off clears every risky flag.</value>
+  </data>
+    <data name="Menu.Risky.Visual.Title" xml:space="preserve">
+    <value>Visual</value>
+  </data>
+    <data name="Menu.Risky.Fullbright.Title" xml:space="preserve">
+    <value>Fullbright</value>
+  </data>
+    <data name="Menu.Risky.Fullbright.Description" xml:space="preserve">
+    <value>Flattens lighting and removes baked shadows so dark areas are fully lit.</value>
+  </data>
+    <data name="Menu.Risky.Wireframe.Title" xml:space="preserve">
+    <value>Wireframe rendering</value>
+  </data>
+    <data name="Menu.Risky.Wireframe.Description" xml:space="preserve">
+    <value>Draws geometry as wireframe, which makes objects visible through walls.</value>
+  </data>
+    <data name="Menu.Risky.SkipMeshVoxelizer.Title" xml:space="preserve">
+    <value>Skip mesh voxelizer</value>
+  </data>
+    <data name="Menu.Risky.SkipMeshVoxelizer.Description" xml:space="preserve">
+    <value>Stops meshes contributing to voxel lighting.</value>
   </data>
 </root>

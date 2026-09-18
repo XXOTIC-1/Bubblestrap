@@ -342,7 +342,6 @@ namespace Bloxstrap
             else
             {
                 WindowsRegistry.RegisterPlayer();
-                ModsViewModel.ApplyRobloxIcon();
             }
 
             WindowsRegistry.RegisterClientLocation(IsStudioLaunch, _latestVersionDirectory); // if it for some reason doesnt exist

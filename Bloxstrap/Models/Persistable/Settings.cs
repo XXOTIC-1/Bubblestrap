@@ -26,6 +26,14 @@ namespace Bloxstrap.Models.Persistable
         public bool ConfirmLaunches { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool UseFastFlagManager { get; set; } = true;
+
+        // Only flags on FastFlagManager.AllowedFlags get written to the client while this is on.
+        // Off-list flags stay in the user's list but are skipped, so a pasted flag pack can't
+        // quietly ship hundreds of unknown values.
+        public bool StrictFlagAllowlist { get; set; } = true;
+
+        // Set once the user accepts the warning on the Risky page. Gates every risky control.
+        public bool RiskyFlagsAcknowledged { get; set; } = false;
         public bool WPFSoftwareRender { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
         public bool SkipRobloxUpgrades { get; set; } = false;
@@ -41,25 +49,19 @@ namespace Bloxstrap.Models.Persistable
         public bool EnableTrayModal { get; set; } = false;
         public bool LaunchOnStartup { get; set; } = false;
         public string RobloxTheme { get; set; } = "Dark";
-        public RobloxIcon CustomRobloxIcon { get; set; } = RobloxIcon.Default;
-        public string CustomRobloxIconLocation { get; set; } = string.Empty;
         public bool DebugDisableVersionPackageCleanup { get; set; } = false;
         public WebEnvironment WebEnvironment { get; set; } = WebEnvironment.Production;
 
         // integration configuration
         public CleanerOptions CleanerOptions { get; set; } = CleanerOptions.Never;
         public List<string> CleanerDirectories { get; set; } = new List<string>();
+
+        // Hidden, not gone. These have no settings UI anymore, but Watcher, Bootstrapper and the
+        // tray icon still branch on them. They are pinned to safe values rather than deleted so
+        // the watcher keeps working and existing config files stay readable.
         public bool EnableActivityTracking { get; set; } = true;
-        public bool UseDiscordRichPresence { get; set; } = false;
-        public bool HideRPCButtons { get; set; } = true;
-        public bool ShowUsingBubblestrapRPC { get; set; } = false;
-        public bool EnableCustomStatusDisplay { get; set; } = true;
-        public bool ShowAccountOnRichPresence { get; set; } = false;
-        public bool ShowAccountAvatarOnly { get; set; } = false;
         public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
-
-        // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
     }
 }

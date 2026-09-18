@@ -20,8 +20,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public EventHandler? RequestCloseWindowEvent;
 
-        public bool GBSEnabled = App.GlobalSettings.Loaded;
-
         public bool TestModeEnabled
         {
             get => App.LaunchSettings.TestModeFlag.Active;
@@ -43,9 +41,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void OpenAbout()
         {
-            App.BubbleRPC?.SetDialog("About");
             new MainWindow().ShowDialog();
-            App.BubbleRPC?.ClearDialog();
         }
 
         private void CloseWindow() => RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
@@ -55,10 +51,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
             const string LOG_IDENT = "MainWindowViewModel::SaveSettings";
 
             App.Settings.Save();
-            ModsViewModel.ApplyRobloxIcon();
             App.State.Save();
             App.FastFlags.Save();
-            App.GlobalSettings.Save();
 
             foreach (var pair in App.PendingSettingTasks)
             {

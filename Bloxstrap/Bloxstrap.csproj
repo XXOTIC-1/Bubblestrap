@@ -31,16 +31,10 @@
 	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
 </PropertyGroup>
   <ItemGroup>
-    <None Remove="Resources\LightEditor.xshd" />
   </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Tuffstrap.ico" />
-	<Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\PlayerLogo.png" />
-	<Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\Roblox.png" />
-	<Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\Studio.png" />
-	<Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\StudioLogo.png" />
-    <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
     <Resource Include="Resources\MessageBox\Error.png" />
     <Resource Include="Resources\MessageBox\Information.png" />
@@ -51,41 +45,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\CustomBootstrapperSchema.json" />
-    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate.xml" />
-    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Blank.xml" />
-    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Simple.xml" />
-    <EmbeddedResource Include="Resources\Icon2008.ico" />
-    <EmbeddedResource Include="Resources\Icon2011.ico" />
-    <EmbeddedResource Include="Resources\Icon2017.ico" />
-    <EmbeddedResource Include="Resources\Icon2019.ico" />
-    <EmbeddedResource Include="Resources\Icon2022.ico" />
-	  <EmbeddedResource Include="Resources\Icon2025.ico" />
-    <EmbeddedResource Include="Resources\Icon2025NoBg.ico" />
-    <EmbeddedResource Include="Resources\IconEarly2015.ico" />
-    <EmbeddedResource Include="Resources\IconLate2015.ico" />
-    <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowFarCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Sounds\OldGetUp.mp3" />
-    <EmbeddedResource Include="Resources\Mods\Sounds\OldJump.mp3" />
-    <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
-    <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
-    <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageReference Include="DiscordRichPresence" Version="1.6.1.70" />
     <PackageReference Include="Markdig" Version="1.1.1" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.264" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
-    <PackageReference Include="SharpVectors.Wpf" Version="1.8.5" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
-    <PackageReference Include="XamlAnimatedGif" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
