@@ -1,0 +1,33 @@
+name: Build Tuffstrap
+
+on:
+  push:
+    branches:
+      - cursor/tuffstrap-lightweight-fps-99c9
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Publish
+        run: dotnet publish Bloxstrap/Bloxstrap.csproj -c Release -r win-x64 --self-contained false -o publish
+
+      - name: Upload Tuffstrap.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tuffstrap
+          path: publish/Tuffstrap.exe
+          if-no-files-found: error
