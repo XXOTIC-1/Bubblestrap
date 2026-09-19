@@ -1,4 +1,5 @@
 using Bloxstrap.Integrations;
+using Bloxstrap.UI.Appearance;
 using Microsoft.Win32;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -160,6 +161,8 @@ namespace Bloxstrap
 
             Locale.Initialize();
             base.OnStartup(e);
+
+            TuffstrapTheme.ApplyAccent();
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 

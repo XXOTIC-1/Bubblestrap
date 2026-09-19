@@ -13,7 +13,7 @@
       Scrollable="True"
       Loaded="Page_Loaded">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Style="{StaticResource TuffstrapPageDescription}" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
@@ -21,8 +21,8 @@
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Description}" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Margin="0,4,0,8" TextWrapping="Wrap" />
+        <TextBlock Style="{StaticResource TuffstrapSectionTitle}" Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Title}" />
+        <TextBlock Style="{StaticResource TuffstrapSectionCaption}" Text="{x:Static resources:Strings.Menu_FastFlags_Packs_Description}" />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
             </ui:CardAction>
         </Grid>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Fps_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Style="{StaticResource TuffstrapSectionTitle}" Text="{x:Static resources:Strings.Menu_FastFlags_Fps_Title}" />
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding FpsCapEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
             <ui:CardExpander.Header>
@@ -84,7 +84,7 @@
             <ui:ToggleSwitch IsChecked="{Binding ShowFps, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Style="{StaticResource TuffstrapSectionTitle}" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_LowTextures_Title}"
@@ -161,7 +161,7 @@
             </Grid>
         </ui:CardExpander>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Geometry}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Style="{StaticResource TuffstrapSectionTitle}" Text="{x:Static resources:Strings.Common_Geometry}" />
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding Path=MeshQualityEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
             <ui:CardExpander.Header>
                 <Grid>
@@ -196,7 +196,7 @@
             </StackPanel>
         </ui:CardExpander>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Advanced_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Style="{StaticResource TuffstrapSectionTitle}" Text="{x:Static resources:Strings.Menu_FastFlags_Advanced_Title}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Strict_Title}"

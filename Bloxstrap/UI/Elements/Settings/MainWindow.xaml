@@ -41,21 +41,18 @@
         <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" 
                      Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Tuffstrap.ico" />
 
-        <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid x:Name="RootGrid" Grid.Row="1" Margin="16,8,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                <TextBlock Text="Tuffstrap" FontSize="22" FontWeight="SemiBold" Foreground="{StaticResource TuffstrapGoldBrush}" Margin="8,0,0,4" />
+                <TextBlock Text="FPS launcher" FontSize="11" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Margin="8,0,0,12" />
+
             <ui:NavigationFluent 
                 x:Name="RootNavigation" 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                Margin="0,0,12,0" 
                 Frame="{Binding ElementName=RootFrame}" 
                 SelectedPageIndex="0">
 
@@ -71,24 +68,28 @@
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" FontWeight="Medium" Icon="QuestionCircle24" Margin="0,0,0,12" Command="{Binding OpenAboutCommand}" Click="NavigationItem_Click" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>
+            </StackPanel>
 
-            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ui:InfoBar x:Name="AlertBar" Grid.Row="0" Margin="0,0,12,0" Padding="8" Visibility="Collapsed" IsOpen="True" Message="" Severity="Warning" IsClosable="False" />
-                <ui:Breadcrumb Grid.Row="1" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
-                <Frame x:Name="RootFrame" Grid.Row="2" />
+                <ui:InfoBar x:Name="AlertBar" Grid.Row="0" Margin="0,0,16,8" Padding="8" Visibility="Collapsed" IsOpen="True" Message="" Severity="Warning" IsClosable="False" />
+                <Frame x:Name="RootFrame" Grid.Row="1" Margin="0,0,16,0" />
             </Grid>
         </Grid>
 
         <Border Grid.Row="2" 
-                VerticalAlignment="Bottom" Height="52" Background="{ui:ThemeResource ControlFillColorDefaultBrush}" CornerRadius="12,12,0,0" Padding="16,0">
-            <StatusBar x:Name="RootStatusBar" Padding="14,10" BorderThickness="0,1,0,0">
+                VerticalAlignment="Bottom" Height="48"
+                Background="{StaticResource TuffstrapSurfaceBrush}"
+                BorderBrush="{StaticResource TuffstrapDividerBrush}"
+                BorderThickness="0,1,0,0"
+                CornerRadius="10,10,0,0"
+                Padding="16,0">
+            <StatusBar x:Name="RootStatusBar" Padding="0,8" BorderThickness="0">
                 <StatusBar.Background>
-                    <SolidColorBrush Color="{ui:ThemeResource ApplicationBackgroundColor}" Opacity="0" />
+                    <SolidColorBrush Color="Transparent" />
                 </StatusBar.Background>
                 <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
