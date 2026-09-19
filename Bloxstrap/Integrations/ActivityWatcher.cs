@@ -43,8 +43,6 @@ namespace Bloxstrap.Integrations
         public event EventHandler? OnGameLeave;
         public event EventHandler? OnLogOpen;
         public event EventHandler? OnAppClose;
-        public event EventHandler<Message>? OnRPCMessage;
-
         private DateTime LastRPCRequest;
 
         public string LogLocation = null!;
@@ -312,7 +310,7 @@ namespace Bloxstrap.Integrations
                     }
 
                     string messagePlain = match.Groups[1].Value;
-                    Message? message;
+                    GameMessage? message;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
 
@@ -324,7 +322,7 @@ namespace Bloxstrap.Integrations
 
                     try
                     {
-                        message = JsonSerializer.Deserialize<Message>(messagePlain);
+                        message = JsonSerializer.Deserialize<GameMessage>(messagePlain);
                     }
                     catch (Exception)
                     {
@@ -372,8 +370,6 @@ namespace Bloxstrap.Integrations
 
                         Data.RPCLaunchData = data;
                     }
-
-                    OnRPCMessage?.Invoke(this, message);
 
                     LastRPCRequest = DateTime.Now;
                 }

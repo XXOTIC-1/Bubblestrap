@@ -32,7 +32,6 @@ namespace Bloxstrap
         private const int ProgressBarMaximum = 10000;
 
         private const double TaskbarProgressMaximumWpf = 1; // this can not be changed. keep it at 1.
-        private const int TaskbarProgressMaximumWinForms = WinFormsDialogBase.TaskbarProgressMaximum;
 
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
@@ -1484,11 +1483,7 @@ namespace Bloxstrap
                     _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
                 }
 
-                if (Dialog is WinFormsDialogBase)
-                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWinForms;
-                else
-                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWpf;
-
+                _taskbarProgressMaximum = TaskbarProgressMaximumWpf;
             }
 
             using var downloadSemaphore = new SemaphoreSlim(3);
