@@ -1,33 +1,50 @@
 <div align="center">
   <h1>Tuffstrap</h1>
-  <p>A lightweight Roblox bootstrapper with FPS packs and switches.</p>
+  <p>A barebones Roblox bootstrapper for FPS.</p>
 </div>
 
 > [!NOTE]
 > **Tuffstrap only supports Windows 10 and later**.
 
-**Tuffstrap** is a stripped-down Bubblestrap/Fishstrap fork. Extra languages and heavy defaults are gone. The settings menu opens on **FPS**.
+**Tuffstrap** is a stripped-down Bubblestrap/Fishstrap fork. Five pages, English only, no Discord RPC, no mods, no themes. The settings window opens on **FPS**.
 
-## Features
+## Flag policy
 
-### FPS
-- Potato, Performance, and Balanced one-click packs
-- FPS cap and 240 FPS unlock
-- Switches for post-processing, shadows, SSAO, textures, blur, lights, particles, and grass
-- Rendering mode, MSAA, mesh detail, and FRM quality
+Every flag Tuffstrap ships was checked against the compiled client flag table and a live `PCDesktopClient` dump. Flags that resolved in neither source were dropped rather than shipped, because a preset full of retired flags looks like it works and changes nothing.
 
-### Mods
-- Custom font, death sound, cursors, and Roblox icon
-- Old character sounds and 2020 avatar editor background
+Strict mode is on by default: flags outside Tuffstrap's allowlist stay in your list but are never written to Roblox. Pasting a large flag pack into the editor will not make it apply.
 
-### Bootstrapper
-- Crash handler disabled by default
-- Memory trimmer on by default
-- Discord RPC off by default
-- Fast launch (no confirm prompt)
+## FPS
 
-### Other
+- **Max FPS** and **Balanced** presets
+- FPS cap slider (`DFIntTaskSchedulerTargetFps`), which turns off the 240 limiter for you above 240
+- FPS counter, low textures, no grass, display-scaling fix
+- MSAA, rendering mode, FRM quality, mesh detail
+
+## Risky
+
+Gated behind a warning you have to accept. These change what you can see, not how fast the game runs. They are undocumented, Roblox knows about them, and using them may get your account moderated or banned.
+
+- Fullbright (gray sky + paused voxelizer)
+- Wireframe rendering
+- Skip mesh voxelizer
+
+Turning the acknowledgement back off clears every risky flag.
+
+## Launcher
+
+- Fluent bootstrapper only
+- Memory trimmer on, crash handler closed, no launch confirm
+- Auto-update off
+- Channel and deployment controls
 - Fast Flag editor
-- Global Settings
-- Channel / deployment controls
-- English only
+
+## Building
+
+Windows with the .NET 9 SDK:
+
+```bash
+dotnet publish Bloxstrap/Bloxstrap.csproj -c Release -r win-x64 --self-contained false -o publish
+```
+
+CI does this on every push and uploads `Tuffstrap.exe` as a workflow artifact.
