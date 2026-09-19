@@ -100,75 +100,12 @@ namespace Bloxstrap.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2008 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2008", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2011 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2011", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2017 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2017", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2019 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2019", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2022 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2022", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2025 {
-            get {
-                object obj = ResourceManager.GetObject("Icon2025", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Icon2025NoBg {
-            get {
-                object obj = ResourceManager.GetObject("Icon2025NoBg", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
@@ -190,24 +127,6 @@ namespace Bloxstrap.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconEarly2015 {
-            get {
-                object obj = ResourceManager.GetObject("IconEarly2015", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon IconLate2015 {
-            get {
-                object obj = ResourceManager.GetObject("IconLate2015", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }
